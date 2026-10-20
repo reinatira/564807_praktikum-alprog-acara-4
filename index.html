@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sistem Informasi Statistik Kota Tegal</title>
+<style>
+  body { background: #fff0f6; color: #4a3560; font: 16px/1.6 "Fredoka", "Trebuchet MS", sans-serif; margin: 0; padding: 20px; }
+  a { color: #d6457f; font-weight: 500; }
+  .page { width: 100%; max-width: 1000px; margin: 0 auto; background: #fff; border: 3px solid #4a3560; border-radius: 22px; border-collapse: separate; border-spacing: 0; box-shadow: 8px 8px 0 #ffb3d1; overflow: hidden; }
+  .page > tbody > tr > td { vertical-align: top; }
+  .top { background: #fff3b0; text-align: right; padding: 6px 18px; border-bottom: 3px solid #4a3560; }
+  .top a { background: #4a3560; color: #fff; text-decoration: none; padding: 2px 14px; border-radius: 99px; font-size: 14px; }
+  .head { background: #cde9ff; padding: 14px 24px; border-bottom: 3px solid #4a3560; }
+  .head table { width: 100%; }
+  .head h1 { margin: 0; font-size: clamp(1.4rem, 4vw, 2.3rem); color: #2b4a7a; }
+  .head h2 { margin: 0; font-weight: 400; font-style: italic; color: #d6457f; font-size: 1.4rem; }
+  .menu { width: 210px; background: #e4d9ff; border-right: 3px solid #4a3560; padding: 18px; }
+  .menu ul { list-style: none; padding: 0; margin: 8px 0 0; }
+  .menu li { margin: 8px 0; }
+  .menu li a { display: block; background: #fff; border: 2px solid #4a3560; border-radius: 12px; padding: 4px 12px; text-decoration: none; color: #4a3560; }
+  .menu li:nth-child(1) a { background: #ffd6e7; } .menu li:nth-child(2) a { background: #c9f2e3; }
+  .menu li:nth-child(3) a { background: #fff3b0; } .menu li:nth-child(4) a { background: #cde9ff; }
+  .menu li a:hover { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 #4a3560; }
+  .main { padding: 22px 26px; }
+  h3 { margin: 26px 0 10px; font-size: 1.4rem; color: #2b4a7a; }
+  h3:first-child { margin-top: 0; }
+  .photo { float: right; width: 300px; margin: 4px 0 10px 18px; border: 3px solid #4a3560; border-radius: 16px; background: #fff3b0; padding: 8px; text-align: center; font-size: 13px; transform: rotate(2deg); }
+  .photo img { width: 100%; border-radius: 10px; display: block; }
+  .scroll { overflow-x: auto; }
+  table.data { width: 100%; border: 3px solid #4a3560; border-collapse: collapse; background: #fff; }
+  table.data caption { font-weight: 600; padding: 8px; font-size: 1.15rem; }
+  table.data th, table.data td { border: 2px solid #4a3560; padding: 6px 12px; text-align: right; }
+  table.data td:first-child { text-align: center; font-weight: 500; }
+  table.data th { background: #ff8fb8; color: #fff; text-align: center; }
+  table.data tfoot td { background: #4a3560; color: #fff; font-weight: 600; }
+  .anak td { background: #ffd6e7; } .remaja td { background: #fff3b0; }
+  .dewasa td { background: #cde9ff; } .lansia td { background: #e4d9ff; }
+  tr[class] td:hover { filter: brightness(.94); }
+  .chip { display: inline-block; width: 14px; height: 14px; border: 2px solid #4a3560; border-radius: 50%; vertical-align: middle; margin-right: 4px; }
+  dl { background: #c9f2e3; border: 3px solid #4a3560; border-radius: 16px; padding: 10px 20px; }
+  dt { font-weight: 600; } dd { margin: 0 0 8px 0; }
+  .map { width: 100%; height: 300px; border: 3px solid #4a3560; border-radius: 16px; display: block; }
+  .foot { background: #ffb3d1; border-top: 3px solid #4a3560; text-align: center; padding: 14px; font-size: 14px; }
+  @media (max-width: 760px) {
+    .page, .page > tbody, .page > tbody > tr, .page > tbody > tr > td { display: block; width: auto; }
+    .menu { width: auto; border-right: 0; border-bottom: 3px solid #4a3560; }
+    .photo { float: none; width: auto; margin: 0 0 14px; }
+  }
+</style>
+</head>
+<body>
+<table class="page">
+  <!-- Baris 1: login -->
+  <tr><td colspan="2" class="top"><a href="#login">login</a></td></tr>
+
+  <!-- Baris 2: logo dan judul -->
+  <tr><td colspan="2" class="head">
+    <table><tr>
+      <td width="110">
+        <img src="Shield_of_the_city_of_Tegal.svg.webp" alt="Logo Kota Tegal" width="96" height="96">
+      <td align="center">
+        <h1>SISTEM INFORMASI STATISTIK</h1>
+        <h2>KOTA TEGAL</h2>
+      </td>
+    </tr></table>
+  </td></tr>
+
+  <!-- Baris 3: menu kiri + isi -->
+  <tr>
+    <td class="menu">
+      <b>Menu</b>
+      <ul>
+        <li><a href="#narasi">Tentang Tegal</a></li>
+        <li><a href="#penduduk">Penduduk</a></li>
+        <li><a href="#peta">Peta Wilayah</a></li>
+        <li><a href="#istilah">Istilah</a></li>
+      </ul>
+      <p><font size="2" color="#7a5c99">Data tahun 2025</font></p>
+    </td>
+
+    <td class="main">
+      <h3 id="narasi">Tentang Kota Tegal &#127754;</h3>
+      <div class="photo">
+        <img id="foto" src="alun alun tegal.jpe" alt="Alun-Alun Kota Tegal">
+        Sumber: Traveloka<br>
+      </div>
+      <p>
+        <b>Kota Tegal</b> berada di pesisir utara Jawa Tengah, di jalur pantura yang
+        menghubungkan Jakarta dan Surabaya. Kota kecil ini terkenal dengan
+        <u>warteg</u>, <i>teh poci</i>, dan suasana pelabuhannya yang ramai.
+        Luas wilayahnya sekitar 39,7 km<sup>2</sup> dan terbagi menjadi empat kecamatan.
+      </p>
+      <p>
+        Pada tahun 2025, tercatat <b>297.173</b> penduduk. Jumlah laki-laki
+        sedikit lebih banyak daripada perempuan, dan kelompok umur terbanyak
+        ada di usia <b>40&ndash;44</b> tahun. Setelah usia 55 tahun, jumlah perempuan
+        mulai melampaui laki-laki.
+      </p>
+      <br clear="all">
+
+      <h3 id="penduduk">Tabel Penduduk &#11088;</h3>
+      <p>
+        <span class="chip" style="background:#ffd6e7"></span>Anak (0&ndash;14)&nbsp;&nbsp;
+        <span class="chip" style="background:#fff3b0"></span>Remaja (15&ndash;24)&nbsp;&nbsp;
+        <span class="chip" style="background:#cde9ff"></span>Dewasa (25&ndash;59)&nbsp;&nbsp;
+        <span class="chip" style="background:#e4d9ff"></span>Lansia (60+)
+      </p>
+      <div class="scroll">
+      <table class="data" cellpadding="6">
+        <caption>Jumlah Penduduk Kota Tegal Tahun 2025</caption>
+        <thead>
+          <tr><th rowspan="2">Kelompok Umur</th><th colspan="3">Jumlah Penduduk (Ribu)</th></tr>
+          <tr><th>Laki-Laki</th><th>Perempuan</th><th>Total</th></tr>
+        </thead>
+        <tbody>
+          <tr class="anak"><td>0-4</td><td>9.818,0</td><td>9.122,0</td><td>18.940,0</td></tr>
+          <tr class="anak"><td>5-9</td><td>12.449,0</td><td>11.496,0</td><td>23.945,0</td></tr>
+          <tr class="anak"><td>10-14</td><td>12.323,0</td><td>11.634,0</td><td>23.957,0</td></tr>
+          <tr class="remaja"><td>15-19</td><td>12.208,0</td><td>11.525,0</td><td>23.733,0</td></tr>
+          <tr class="remaja"><td>20-24</td><td>11.458,0</td><td>11.045,0</td><td>22.503,0</td></tr>
+          <tr class="dewasa"><td>25-29</td><td>11.889,0</td><td>11.344,0</td><td>23.233,0</td></tr>
+          <tr class="dewasa"><td>30-34</td><td>11.925,0</td><td>11.066,0</td><td>22.991,0</td></tr>
+          <tr class="dewasa"><td>35-39</td><td>11.205,0</td><td>10.507,0</td><td>21.712,0</td></tr>
+          <tr class="dewasa"><td>40-44</td><td>12.643,0</td><td>12.044,0</td><td>24.687,0</td></tr>
+          <tr class="dewasa"><td>45-49</td><td>12.300,0</td><td>11.552,0</td><td>23.852,0</td></tr>
+          <tr class="dewasa"><td>50-54</td><td>9.603,0</td><td>9.533,0</td><td>19.136,0</td></tr>
+          <tr class="dewasa"><td>55-59</td><td>7.380,0</td><td>7.839,0</td><td>15.219,0</td></tr>
+          <tr class="lansia"><td>60-64</td><td>5.490,0</td><td>6.456,0</td><td>11.946,0</td></tr>
+          <tr class="lansia"><td>65-69</td><td>4.315,0</td><td>5.228,0</td><td>9.543,0</td></tr>
+          <tr class="lansia"><td>70-74</td><td>2.768,0</td><td>3.309,0</td><td>6.077,0</td></tr>
+          <tr class="lansia"><td>75+</td><td>2.183,0</td><td>3.516,0</td><td>5.699,0</td></tr>
+        </tbody>
+        <tfoot><tr><td>Jumlah</td><td>149.957,0</td><td>147.216,0</td><td>297.173,0</td></tr></tfoot>
+      </table>
+      </div>
+      <p align="center"><font size="2">Sumber: BPS Kota Tegal</font></p>
+
+      <h3 id="peta">Peta Wilayah &#128205;</h3>
+      <iframe class="map" title="Peta Kota Tegal" loading="lazy"
+        src="https://www.google.com/maps?q=Kota+Tegal,+Jawa+Tengah&amp;output=embed"></iframe>
+
+      <h3 id="istilah">Istilah Singkat &#128161;</h3>
+      <dl>
+        <dt>Kelompok umur</dt>
+        <dd>Pengelompokan penduduk per lima tahun, misalnya 0&ndash;4 atau 5&ndash;9.</dd>
+        <dt>Usia produktif</dt>
+        <dd>Penduduk umur 15&ndash;64 tahun, yaitu usia yang umumnya sudah bisa bekerja.</dd>
+        <dt>Rasio jenis kelamin</dt>
+        <dd>Jumlah laki-laki per 100 perempuan. Di Tegal angkanya sekitar 101,9.</dd>
+      </dl>
+    </td>
+  </tr>
+
+  <!-- Baris 4: footer -->
+  <tr><td colspan="2" class="foot">
+    <b>Pemerintah Kota Tegal</b> &hearts; Praktikum Algoritma dan Pemrograman, Acara 4<br>
+    Dibuat oleh: <i>Renata Indah Atira &ndash; 25/564807/GE/10866</i>
+  </td></tr>
+</table>
+</body>
+</html>
